@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { TodoContext } from '../context/TodoContext.js';
 
 
 const Form = () => {
 
+    const [todoText, setTodoText] = useState();
+    const { dispatch } = useContext(TodoContext);
+
+    const handleChanges = e => {
+        setTodoText(e.target.value);
+    }
 
     return (
-        <div>Form</div>
+        <div>
+            <input
+                type='text'
+                name='todoText'
+                value={todoText}
+                onChange={handleChanges}
+             />
+             <button onClick={() => {
+                 dispatch({ type: 'ADD', payload: todoText})
+             }}>Add</button>
+        </div>
     );
 }
 
