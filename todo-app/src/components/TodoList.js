@@ -1,11 +1,14 @@
 import React from 'react';
 
+import Todo from './Todo.js';
 
 const TodoList = () => {
 
 
     return (
-        <div>TodoList</div>
+        <div>
+            <Todo />
+        </div>
     );
 }
 

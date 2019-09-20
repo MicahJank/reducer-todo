@@ -1,11 +1,13 @@
 import React from 'react';
 
-
+import Form from './components/Form.js';
+import TodoList from './components/TodoList.js';
 
 function App() {
   return (
     <div>
-      App
+      <Form />
+      <TodoList />
     </div>
   );
 }
