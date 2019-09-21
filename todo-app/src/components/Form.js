@@ -22,6 +22,9 @@ const Form = () => {
              <button onClick={() => {
                  dispatch({ type: 'ADD', payload: todoText})
              }}>Add</button>
+             <button onClick={() => {
+                 dispatch({type: 'CLEAR_COMPLETED'})
+             }}>Clear Completed</button>
         </div>
     );
 }
