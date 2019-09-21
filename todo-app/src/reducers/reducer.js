@@ -15,6 +15,14 @@ export const reducer = (state, action) => {
                 complete: false,
                 id: Date.now()
             }];
+            case 'TOGGLE_COMPLETE':
+                return state.map(todo => {
+                    if(todo.id === action.id) {
+                        return {...todo, complete: !todo.complete}
+                    } else {
+                        return todo;
+                    }
+                })
         
         default:
             return state;
