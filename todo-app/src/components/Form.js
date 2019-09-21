@@ -4,7 +4,7 @@ import { TodoContext } from '../context/TodoContext.js';
 
 const Form = () => {
 
-    const [todoText, setTodoText] = useState();
+    const [todoText, setTodoText] = useState('');
     const { dispatch } = useContext(TodoContext);
 
     const handleChanges = e => {
@@ -15,7 +15,7 @@ const Form = () => {
         <div>
             <input
                 type='text'
-                name='todoText'
+                name={todoText}
                 value={todoText}
                 onChange={handleChanges}
              />
