@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { TodoContext } from '../context/TodoContext.js';
+import { List } from 'semantic-ui-react';
 
 import Todo from './Todo.js';
 
@@ -8,11 +9,17 @@ const TodoList = () => {
 
     const { todos } = useContext(TodoContext);
         return (
-        <div>
+        <List divided relaxed>
             {todos.map(todo => {
-                return <Todo key={todo.id} todo={todo} />
+                return (
+                <List.Item>
+                    <List.Content>
+                        <Todo key={todo.id} todo={todo} />
+                    </List.Content>
+                </List.Item>
+                )
             })}
-        </div>
+        </List>
     );
 }
 
