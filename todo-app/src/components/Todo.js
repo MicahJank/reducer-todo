@@ -9,8 +9,9 @@ const Container = styled.div`
     display: flex;
     justify-content: space;
     align-items: baseline;
-    width: 50%;
+    width: 70%;
     margin: auto;
+    padding: 0 20px;
 
     .todo {
         position: relative;
@@ -28,7 +29,7 @@ const Container = styled.div`
 
     .ui.fitted.checkbox {
         position: absolute;
-        left: 0;
+        left: 20px;
         top: 20px;
     }
 
