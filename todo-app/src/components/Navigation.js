@@ -8,10 +8,22 @@ import styled from 'styled-components';
 const Container = styled.div`
     width: 100%;
     text-align: center;
+    background-color: #0074D9;
+    padding: 30px 0;
 
     .ui.pointing.secondary.menu {
         display: flex;
         justify-content: center;
+
+        a {
+            color: rgb(255, 255, 255, 0.5);
+        }
+
+        .active.item {
+            color: rgb(255, 255, 255);
+            border-color: rgb(255, 255, 255);
+
+        }
     }
 `;
 
