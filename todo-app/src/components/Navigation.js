@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+
+import { TodoContext } from '../context/TodoContext.js';
 
 import { Menu, Segment } from 'semantic-ui-react';
 import styled from 'styled-components';
-import { setState } from 'expect/build/jestMatchersObject';
 
 const Container = styled.div`
     width: 100%;
@@ -18,26 +19,35 @@ const Navigation = () => {
 
     const [activeItem, setActiveItem] = useState('ALL');
 
+    const { dispatch } = useContext(TodoContext);
 
-    const handleClick = (e, { name }) => setState(name);
+    const handleClick = (e) => {
+        setActiveItem(e.target.getAttribute('value'));
+        dispatch({
+            type: `FILTER_${e.target.getAttribute('value')}`
+        })
+    }
 
     return (
         <Container>
             <Menu pointing secondary>
-                <Menu.Item 
-                    name='ALL'
+                <Menu.Item
+                    name='ALL' 
+                    value='ALL'
                     active={activeItem === 'ALL'}
-                    onClick={() => setActiveItem('ALL')}
-                />
-                <Menu.Item 
-                    name='ACTIVE'
+                    onClick={handleClick}
+                >ALL</Menu.Item>
+                <Menu.Item
+                    name='ACTIVE' 
+                    value='ACTIVE'
                     active={activeItem === 'ACTIVE'}
-                    onClick={() => setActiveItem('ACTIVE')}
+                    onClick={handleClick}
                 />
-                <Menu.Item 
-                    name='COMPLETED'
+                <Menu.Item
+                    name='COMPLETED' 
+                    value='COMPLETED'
                     active={activeItem === 'COMPLETED'}
-                    onClick={() => setActiveItem('COMPLETED')}
+                    onClick={handleClick}
                 />
             </Menu>
         </Container>
