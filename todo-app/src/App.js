@@ -8,16 +8,19 @@ import Navigation from './components/Navigation.js';
 import { Container, Header } from 'semantic-ui-react';
 
 import { TodoProvider } from './context/TodoContext.js';
+import { NavigationProvider } from './context/NavigationContext.js';
 
 function App() {
   return (
     <TodoProvider>
-      <HeaderTitle />
-      <Navigation />
-      <Container textAlign='center'>
-        <Form />
-        <TodoList />
-      </Container>
+      <NavigationProvider>
+        <HeaderTitle />
+        <Navigation />
+        <Container textAlign='center'>
+          <Form />
+          <TodoList />
+        </Container>
+      </NavigationProvider>
     </TodoProvider>
   );
 }

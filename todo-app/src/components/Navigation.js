@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 
 import { TodoContext } from '../context/TodoContext.js';
+import { NavigationContext } from '../context/NavigationContext.js';
 
 import { Menu, Segment } from 'semantic-ui-react';
 import styled from 'styled-components';
@@ -29,8 +30,7 @@ const Container = styled.div`
 
 const Navigation = () => {
 
-    const [activeItem, setActiveItem] = useState('ALL');
-
+    const [activeItem, setActiveItem] = useContext(NavigationContext);
     const { dispatch } = useContext(TodoContext);
 
     const handleClick = (e) => {
